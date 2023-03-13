@@ -66,6 +66,14 @@ async def quiz_2(call: types.CallbackQuery):
     )
 
 
+@dp.message_handler(commands=['mem'])
+async def mem_handler(message: types.Message):
+    url = 'https://i.pinimg.com/originals/b1/3e/19/b13e1928a298443993655983be8577d2.jpg'
+    await bot.send_photo(chat_id=message.from_user.id, photo=url)
+
+dp.message_handler(commands=['mem'])(mem_handler)
+
+
 @dp.message_handler()
 async def message_handler(message):
     if message.text.isdigit():
@@ -80,12 +88,6 @@ async def message_handler(message):
         )
 
 
-@dp.message_handler(commands=['mem'])
-async def mem_handler(message: types.Message):
-    url = 'https://i.pinimg.com/originals/b1/3e/19/b13e1928a298443993655983be8577d2.jpg'
-    await bot.send_photo(chat_id=message.from_user.id, photo=url)
-
-
 @dp.message_handler()
 async def echo(message: types.Message):
 
@@ -96,8 +98,6 @@ async def echo(message: types.Message):
             chat_id=message.from_user.id,
             text=f"Салам {message.from_user.full_name}"
         )
-        await message.answer(f"This is an answer method! {message.message_id}")
-        await message.reply("This is a reply method!")
 
 
 if __name__ == '__main__':
