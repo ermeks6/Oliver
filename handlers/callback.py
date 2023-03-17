@@ -24,7 +24,7 @@ async def quiz_2(call: types.CallbackQuery):
         is_anonymous=False,
         type='quiz',
         correct_option_id=2,
-        explanation="Стыдно не знать",
+        explanation="your answer is wrong",
         open_period=10,
         reply_markup=markup
     )
@@ -47,7 +47,7 @@ async def quiz_3(call: types.CallbackQuery):
         is_anonymous=False,
         type='quiz',
         correct_option_id=2,
-        explanation="Стыдно не знать",
+        explanation="your answer is wrong",
         open_period=5,
         reply_markup=markup
     )
@@ -66,7 +66,7 @@ async def quiz_4(call: types.CallbackQuery):
         is_anonymous=False,
         type='quiz',
         correct_option_id=0,
-        explanation="было очевидно",
+        explanation="your answer is wrong",
         open_period=10,
     )
 

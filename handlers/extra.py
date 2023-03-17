@@ -12,8 +12,8 @@ async def bad_words_filter(message: types.Message):
     bad_words = ['html', 'js', 'css', 'жинди', 'дурак']
     for word in bad_words:
         if word in message.text.lower().replace(' ', ''):
-            await message.answer(f"Не матерись {message.from_user.full_name}, "
-                                 f"сам ты {word}")
+            await message.answer(f"Don't swear {message.from_user.full_name}, "
+                                 f"you are a {word}")
             await message.delete()
             break
 

@@ -5,11 +5,11 @@ from keyboards.client_kb import start_markup
 
 
 async def start_command(message: types.Message):
-    await message.answer("Hello world!", reply_markup=start_markup)
+    await message.answer("sup", reply_markup=start_markup)
 
 
 async def help_command(message: types.Message):
-    await message.answer("Сам разбирайся!")
+    await message.answer("bro idk")
 
 
 async def quiz_1(message: types.Message):
@@ -29,7 +29,7 @@ async def quiz_1(message: types.Message):
         is_anonymous=False,
         type='quiz',
         correct_option_id=1,
-        explanation="it's not correct",
+        explanation="your answer is wrong",
         open_period=5,
         reply_markup=markup
     )
