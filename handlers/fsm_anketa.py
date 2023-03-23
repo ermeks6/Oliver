@@ -1,8 +1,9 @@
-from aiogram import  types, Dispatcher
+from aiogram import types, Dispatcher
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Text
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from keyboards import client_kb
+from database.bot_db import sql_command_insert
 
 
 class FSMAdmin(StatesGroup):
@@ -16,7 +17,7 @@ class FSMAdmin(StatesGroup):
 async def fsm_start(message: types.Message):
     if message.chat.type == "private":
         await FSMAdmin.name.set()
-        await message.answer("Enter your name: ", reply_markup=client_kb.cancel)
+        await message.answer("Enter your name: ", reply_markup=client_kb.cancel_markup)
     else:
         await message.answer("Write to the group!")
 
@@ -64,7 +65,8 @@ async def load_direction(message: types.Message, state: FSMContext):
 
 async def submit(message: types.Message, state: FSMContext):
     if message.text == "yes":
-        # Save user data to database here
+        await sql_command_insert(state)
+        await message.answer("ghghgfjhgdfkh")
         await state.finish()
     elif message.text == "no":
         await state.finish()
@@ -76,6 +78,7 @@ async def cansel_reg(message: types.Message, state: FSMContext):
     current_state = await state.get_state()
     if current_state:
         await state.finish()
+        await message.answer("You completed the operation")
         await message.answer("canceled✔️️")
 
 

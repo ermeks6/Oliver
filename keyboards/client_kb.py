@@ -20,9 +20,9 @@ start_markup.add(
     share_contact
 )
 
-cancel_button = KeyboardButton("cancel"),
+cancel_button = KeyboardButton("cancel")
 
-cancel = ReplyKeyboardMarkup(
+cancel_markup = ReplyKeyboardMarkup(
     resize_keyboard=True,
     one_time_keyboard=True,
 ).add(
