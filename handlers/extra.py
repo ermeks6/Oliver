@@ -1,6 +1,5 @@
-from random import choice
-
 from aiogram import types, Dispatcher
+from random import choice
 from config import bot
 
 
