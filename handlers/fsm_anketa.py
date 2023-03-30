@@ -76,7 +76,7 @@ async def load_group(message: types.Message, state: FSMContext):
 async def submit(message: types.Message, state: FSMContext):
     if message.text == "yes":
         await sql_command_insert(state)
-        await message.answer("ghghgfjhgdfkh")
+        await message.answer("You are registered!")
         await state.finish()
     elif message.text == "no":
         await state.finish()
